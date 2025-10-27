@@ -68,24 +68,3 @@ char *ft_itoa(int n)
 	}
 	return (result[size] = '\0', rev_str(result));
 }
-
-/*
-int	main(void) {
-	printf("digit sum of 6789421: %d\n", digit_sum(6789421));
-	printf("digit sum of -6789421: %d\n", digit_sum(-6789421));
-	printf("digit sum of 0: %d\n", digit_sum(0));
-	printf("digit sum of 1: %d\n", digit_sum(1));
-	char str1[] = "dupa";
-	char str2[] = "ptaka";
-	printf("reversed str 'dupa': %s\n", rev_str(str1));
-	printf("reversed str 'ptaka': %s\n", rev_str(str2));
-	printf("itoa 5684213: %s\n", ft_itoa(5684213));
-	printf("itoa -5684213: %s\n", ft_itoa(-5684213));
-	printf("itoa 500: %s\n", ft_itoa(500));
-	printf("itoa -500: %s\n", ft_itoa(-500));
-	printf("itoa 2147483647: %s\n", ft_itoa(2147483647));
-	printf("itoa -2147483648: %s\n", ft_itoa(-2147483648));
-	printf("itoa 0: %s\n", ft_itoa(0));
-	return (0);
-}
-*/
