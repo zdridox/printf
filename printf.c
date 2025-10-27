@@ -4,13 +4,16 @@ int handle_type(char type, void *val)
 {
     int size;
 
-    size = 0;
     if (type == 's')
-        size += putstr(val);
-    if (type == 'd')
-        size += putnbr(&val);
+        size = putstr(val);
+    if (type == 'd' || type == 'i')
+        size = putnbr(&val);
     if (type == 'c')
-        size += putachar(&val);
+        size = putachar(&val);
+    if (type == 'u')
+        size = putunbr(&val);
+    if (type == '%')
+        size = write(1, "%", 1);
     return (size);
 }
 
@@ -21,12 +24,16 @@ int ft_printf(const char *str, ...)
     int size;
 
     size = 0;
+    p = NULL;
+    if (str_validator(str) < 0)
+        return (-1);
     va_start(args, str);
     while (*str)
     {
         if (*str == '%')
         {
-            p = va_arg(args, void *);
+            if (*(str + 1) != '%')
+                p = va_arg(args, void *);
             size += handle_type(*(str + 1), p);
             str++;
         }
@@ -42,9 +49,10 @@ int main()
     int size;
     char str[] = "marek";
     int num = 50;
+    unsigned int unum = 4294967295;
     char c = 'c';
 
-    size = ft_printf("str: %s int: %d char: %c\n", str, num, c);
+    size = ft_printf("%%: %% s: %s d: %d c: %c i: %i u: %u\n", str, num, c, num + 5, unum);
     putnbr(&size);
     return 0;
 }
