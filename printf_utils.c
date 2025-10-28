@@ -48,22 +48,44 @@ int char_index(char *str, char c)
     return (-1);
 }
 
-int str_validator(const char *str)
+int hexStringSize(unsigned long num)
 {
-    int str_size;
-    char *valid_types;
+    int size = 0;
+    if (num == 0)
+        return 1;
+    while (num > 0)
+    {
+        num /= 16;
+        size++;
+    }
+    return size;
+}
+
+char *int_to_hex(unsigned long num, int type)
+{
+    char *str;
+    char *hexChars;
+    int size;
     int i;
 
-    i = 0;
-    valid_types = ft_strdup("cspdiuxX%");
-    str_size = ft_strlen(str);
-    while (str[i] != '\0')
+    if (type == 1)
+        hexChars = ft_strdup("0123456789ABCDEF");
+    else
+        hexChars = ft_strdup("0123456789abcdef");
+    size = hexStringSize(num);
+    i = size - 1;
+    str = malloc(size + 1);
+    str[size] = '\0';
+    if (num == 0)
     {
-        if (str[i] == '%' && str[i - 1] != '%' && i == str_size - 1)
-            return (free(valid_types), -1);
-        if (str[i] == '%' && char_index(valid_types, str[i + 1]) == -1 && str[i - 1] != '%')
-            return (free(valid_types), -1);
-        i++;
+        str[0] = '0';
+        return (free(hexChars), str);
     }
-    return (free(valid_types), 0);
+    while (num > 0)
+    {
+        str[i] = hexChars[num % 16];
+        num /= 16;
+        i--;
+    }
+    return (free(hexChars), str);
 }

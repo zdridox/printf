@@ -1,12 +1,10 @@
 #include "printf.h"
 
-int putstr(void *val)
+int putstr(char *str)
 {
-    char *str;
     int size;
 
     size = 0;
-    str = (char *)val;
     while (*str != '\0')
     {
         write(1, &(*str), 1);
@@ -16,36 +14,34 @@ int putstr(void *val)
     return (size);
 }
 
-int putnbr(void *val)
+int putnbr(int nbr)
 {
-    int nbr;
     int size;
     char *nbr_t;
 
-    nbr = *(int *)val;
     nbr_t = ft_itoa(nbr);
-    size = putstr((void *)nbr_t);
+    size = putstr(nbr_t);
     free(nbr_t);
     return (size);
 }
 
-int putachar(void *val)
+int putunbr(unsigned int nbr)
 {
-    char c;
-
-    c = *(char *)val;
-    return (write(1, &c, 1), 1);
-}
-
-int putunbr(void *val)
-{
-    unsigned int nbr;
     int size;
     char *nbr_t;
 
-    nbr = *(unsigned int *)val;
     nbr_t = unsigned_itoa(nbr);
     size = putstr((void *)nbr_t);
     free(nbr_t);
     return (size);
+}
+
+int printpointer(void *p)
+{
+    int size;
+    char *hex;
+
+    size = putstr("0x");
+    size += putstr(hex = int_to_hex((unsigned long)p, 2));
+    return (free(hex), size);
 }
