@@ -24,7 +24,6 @@ int ft_printf(const char *str, ...)
     int size;
 
     size = 0;
-    p = NULL;
     if (str_validator(str) < 0)
         return (-1);
     va_start(args, str);

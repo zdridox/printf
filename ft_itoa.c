@@ -1,7 +1,5 @@
 #include "printf.h"
 
-// #include <stdio.h>
-
 static int digit_sum(int n)
 {
 	int i;
