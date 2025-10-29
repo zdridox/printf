@@ -58,7 +58,7 @@ int hexStringSize(unsigned long num)
         num /= 16;
         size++;
     }
-    return size;
+    return (size);
 }
 
 char *int_to_hex(unsigned long num, int type)

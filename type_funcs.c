@@ -31,7 +31,7 @@ int putunbr(unsigned int nbr)
     char *nbr_t;
 
     nbr_t = unsigned_itoa(nbr);
-    size = putstr((void *)nbr_t);
+    size = putstr(nbr_t);
     free(nbr_t);
     return (size);
 }
