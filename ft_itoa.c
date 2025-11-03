@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzdrodow <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/03 10:56:27 by mzdrodow          #+#    #+#             */
+/*   Updated: 2025/11/03 10:56:28 by mzdrodow         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 
-static int digit_sum(int n)
+static int	digit_sum(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n < 0)
@@ -20,11 +32,11 @@ static int digit_sum(int n)
 	return (i);
 }
 
-static char *rev_str(char *str)
+static char	*rev_str(char *str)
 {
-	int i;
-	int size;
-	char temp;
+	int		i;
+	int		size;
+	char	temp;
 
 	size = ft_strlen(str);
 	i = 0;
@@ -38,11 +50,11 @@ static char *rev_str(char *str)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *result;
-	int i;
-	int size;
+	char	*result;
+	int		i;
+	int		size;
 
 	i = 0;
 	if (n == 0)
@@ -67,9 +79,9 @@ char *ft_itoa(int n)
 	return (result[size] = '\0', rev_str(result));
 }
 
-static int u_digit_sum(unsigned int n)
+static int	u_digit_sum(unsigned int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n == 0)
@@ -82,11 +94,11 @@ static int u_digit_sum(unsigned int n)
 	return (i);
 }
 
-char *unsigned_itoa(unsigned int num)
+char	*unsigned_itoa(unsigned int num)
 {
-	char *str;
-	int d_sum;
-	int i;
+	char	*str;
+	int		d_sum;
+	int		i;
 
 	d_sum = u_digit_sum(num);
 	str = malloc(d_sum + 1);
