@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzdrodow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 10:56:27 by mzdrodow          #+#    #+#             */
-/*   Updated: 2025/11/03 10:56:28 by mzdrodow         ###   ########.fr       */
+/*   Created: 2025/11/03 13:16:03 by mzdrodow          #+#    #+#             */
+/*   Updated: 2025/11/03 13:16:05 by mzdrodow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	digit_sum(int n)
 {

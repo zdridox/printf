@@ -5,17 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzdrodow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 10:56:44 by mzdrodow          #+#    #+#             */
-/*   Updated: 2025/11/03 10:56:45 by mzdrodow         ###   ########.fr       */
+/*   Created: 2025/11/03 13:16:21 by mzdrodow          #+#    #+#             */
+/*   Updated: 2025/11/03 13:16:23 by mzdrodow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	putstr(char *str)
 {
 	int	size;
 
+	if (str == NULL)
+		return (putstr("(null)"));
 	size = 0;
 	while (*str != '\0')
 	{
@@ -53,6 +55,8 @@ int	printpointer(void *p)
 	int		size;
 	char	*hex;
 
+	if (p == 0)
+		return (putstr("(nil)"));
 	size = putstr("0x");
 	hex = int_to_hex((unsigned long)p, 2);
 	size += putstr(hex);
